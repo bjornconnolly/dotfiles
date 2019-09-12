@@ -1,1 +1,7 @@
+# edit command line with vi keybindings
 set editing-mode vi
+set keymap vi-command
+set keymap vi-insert
+
+# I don't mind 2xtabbing for completion
+#set show-all-if-ambiguous on

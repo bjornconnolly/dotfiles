@@ -1,4 +1,17 @@
+######################¬
+### GENERAL CHANGES ##¬
+######################¬
+
 set -s escape-time 0
+
+# Start at #1, 0 is so far away from the other numbers
+set -g base-index 1
+setw -g pane-base-index 1
+
+######################¬
+### KEY CHANGES    ###¬
+######################¬
+
 # zoom this pane to full screen
 bind ] \
     new-window -d -n tmux-zoom \;\
@@ -59,6 +72,27 @@ bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE 
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys C-l) || tmux select-pane -R"
 bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys 'C-\\') || tmux select-pane -l"
 bind C-l send-keys 'C-l'
+
+bind u copy-mode -u
+
+######################
+### MOUSE CHANGES  ###
+######################
+
+# disable mouse control by default - change 'off' to 'on' to enable by default.
+setw -g mouse off
+#set-option -g mouse-resize-pane off
+#set-option -g mouse-select-pane off
+#set-option -g mouse-select-window off
+# toggle mouse mode to allow mouse copy/paste
+# set mouse on with prefix m
+bind m \
+    set -g mouse on \;\
+    display "Mouse: ON";
+# set mouse off with prefix M
+bind M \
+    set -g mouse off \;\
+    display "Mouse: OFF";
 
 ######################
 ### DESIGN CHANGES ###
@@ -158,21 +192,4 @@ setw -g window-status-bell-bg colour1
 set -g message-attr bold
 # i colour-fil set -g message-fg colour232
 # i colour-fil set -g message-bg colour166
-
-bind u copy-mode -u
-# }
-# disable mouse control by default - change 'off' to 'on' to enable by default.
-setw -g mouse on
-#set-option -g mouse-resize-pane off
-#set-option -g mouse-select-pane off
-#set-option -g mouse-select-window off
-# toggle mouse mode to allow mouse copy/paste
-# set mouse on with prefix m
-bind m \
-    set -g mouse on \;\
-    display "Mouse: ON";
-# set mouse off with prefix M
-bind M \
-    set -g mouse off \;\
-    display "Mouse: OFF";
 

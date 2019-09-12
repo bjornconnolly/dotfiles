@@ -18,7 +18,8 @@ source install/git.sh
 #fi
 
 echo "creating vim directories"
-mkdir -p ~/tmp
+mkdir -p ~/tmp/vim
+mkdir -p ~/tmp/tmux
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugged
 
