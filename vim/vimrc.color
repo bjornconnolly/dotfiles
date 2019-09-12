@@ -1,0 +1,34 @@
+"    Comments: Colorizing the "comments" (see ":help comments").
+"    cyan on white does not look good on a black background..
+  hi comment  ctermfg=grey  ctermbg=black
+  hi Constant ctermfg=red
+
+"    LineNr:  Colorize the line numbers (displayed with "set number").
+"    Turn off default underlining of line numbers:
+  hi LineNr   term=NONE cterm=NONE
+
+"    Normal:  Coloring the text with a default color.
+  hi normal   term=NONE
+  hi String   ctermfg=white
+  hi Conditional ctermfg=red
+"  hi Repeat  ctermfg=red
+"  hi Keyword ctermfg=red
+
+  hi Statement  ctermfg=blue
+  hi Type       ctermfg=blue
+  hi Special    ctermfg=magenta
+  hi Identifier ctermfg=darkmagenta
+  hi Comment    ctermfg=grey
+  hi Constant   ctermfg=red
+  hi PreProc    ctermfg=magenta
+
+" coloring "nontext", ie TABs, trailing spaces,  end-of-lines,
+" and the "tilde lines" representing lines after end-of-buffer.
+  hi nontext    term=NONE cterm=NONE ctermfg=darkgrey   ctermbg=black
+
+"    Search: Coloring "search matches".  Use white on red.
+  hi search     ctermfg=white ctermbg=red     guifg=white guibg=red
+
+"    statusline:  coloring the status line
+  hi statusline   term=NONE cterm=NONE ctermfg=white ctermbg=darkgrey
+  hi statuslineNC term=NONE cterm=NONE ctermfg=black  ctermbg=white
