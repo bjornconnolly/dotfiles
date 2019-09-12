@@ -10,28 +10,28 @@ if [ -n "${BASH_VERSION}" ]; then
     : ${omg_second_line:=$PS1}
 
     : ${omg_is_a_git_repo_symbol:='G'}
-    : ${omg_has_untracked_files_symbol:='U'}        #                ?    
+    : ${omg_has_untracked_files_symbol:='U'}
     : ${omg_has_adds_symbol:='+'}
     : ${omg_has_deletions_symbol:='D'}
     : ${omg_has_cached_deletions_symbol:='D'}
     : ${omg_has_modifications_symbol:='M'}
     : ${omg_has_cached_modifications_symbol:='M'}
-    : ${omg_ready_to_commit_symbol:='C'}            #   →
-    : ${omg_is_on_a_tag_symbol:='T'}                #   
+    : ${omg_ready_to_commit_symbol:='C'}
+    : ${omg_is_on_a_tag_symbol:='T'}
     : ${omg_needs_to_merge_symbol:='M'}
     : ${omg_detached_symbol:='~'}
     : ${omg_can_fast_forward_symbol:='>'}
-    : ${omg_has_diverged_symbol:='≠'}               #   
+    : ${omg_has_diverged_symbol:='≠'}
     : ${omg_not_tracked_branch_symbol:='B'}
-    : ${omg_rebase_tracking_branch_symbol:='R'}     #   
-    : ${omg_merge_tracking_branch_symbol:='B'}      #  
-    : ${omg_should_push_symbol:='P'}                #    
+    : ${omg_rebase_tracking_branch_symbol:='R'}
+    : ${omg_merge_tracking_branch_symbol:='B'}
+    : ${omg_should_push_symbol:='P'}
     : ${omg_has_stashes_symbol:='S'}
 
     : ${omg_default_color_on:='\[\033[1;37m\]'}
     : ${omg_default_color_off:='\[\033[0m\]'}
     : ${omg_last_symbol_color:='\e[0;34m\e[33'}
-    
+
     PROMPT='$(build_prompt)'
     RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
@@ -92,7 +92,7 @@ if [ -n "${BASH_VERSION}" ]; then
         local background_purple='\e[45m'
         local background_cyan='\e[46m'
         local background_white='\e[47m'
-        
+
         local reset='\e[0m'     # Text Reset]'
 
         local black_on_white="${black}${background_white}"
@@ -102,6 +102,7 @@ if [ -n "${BASH_VERSION}" ]; then
         local black_on_red="${black}${background_red}"
         local white_on_red="${white}${background_red}"
         local yellow_on_red="${yellow}${background_red}"
+        local yellow_on_cyan="${yellow}${background_cyan}"
 
 
         # Flags
@@ -116,13 +117,13 @@ if [ -n "${BASH_VERSION}" ]; then
             prompt+=$(enrich_append $has_untracked_files $omg_has_untracked_files_symbol "${red_on_white}")
             prompt+=$(enrich_append $has_modifications $omg_has_modifications_symbol "${red_on_white}")
             prompt+=$(enrich_append $has_deletions $omg_has_deletions_symbol "${red_on_white}")
-            
+
 
             # ready
             prompt+=$(enrich_append $has_adds $omg_has_adds_symbol "${black_on_white}")
             prompt+=$(enrich_append $has_modifications_cached $omg_has_cached_modifications_symbol "${black_on_white}")
             prompt+=$(enrich_append $has_deletions_cached $omg_has_cached_deletions_symbol "${black_on_white}")
-            
+
             # next operation
 
             prompt+=$(enrich_append $ready_to_commit $omg_ready_to_commit_symbol "${red_on_white}")
@@ -155,7 +156,7 @@ if [ -n "${BASH_VERSION}" ]; then
                         if [[ $commits_ahead == 0 && $commits_behind == 0 ]]; then
                             prompt+=$(enrich_append true " --   -- " "${black_on_red}")
                         fi
-                        
+
                     fi
                     prompt+=$(enrich_append true "(${current_branch} ${type_of_upstream} ${upstream//\/$current_branch/})" "${black_on_red}")
                 fi
@@ -171,7 +172,7 @@ if [ -n "${BASH_VERSION}" ]; then
 
         echo "${prompt}"
     }
-    
+
     PS2="${yellow}→${reset} "
 
     function bash_prompt() {

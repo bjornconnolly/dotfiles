@@ -117,10 +117,10 @@
     local = green
     remote = red bold
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
 [color "status"]
     added = green bold
     changed = yellow bold
@@ -165,5 +165,5 @@
 	instructionFormat = "[%an - %ar] %s"
 	autoStash = true
 [pager]
-    diff = "diff-so-fancy | less --tabs=4 -RFX"
-    show = "diff-so-fancy | less --tabs=4 -RFX"
+	#diff = "diff-so-fancy | less --tabs=4 -RFX"
+	#show = "diff-so-fancy | less --tabs=4 -RFX"
