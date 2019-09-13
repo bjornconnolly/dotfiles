@@ -1,5 +1,5 @@
 export PLATFORM=$(uname -s)
-
+export HOSTNAME=$(hostname) 
 
 if [ "$PLATFORM" = Darwin ]; then
   gpgconf --launch gpg-agent
