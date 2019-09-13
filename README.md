@@ -18,12 +18,12 @@ make/want it.
 
 The layout and most of the scripts are lifted from:
 https://github.com/nicknisi/dotfiles.git
-I've kept his license file and mentions from where he lifted his parts in the relevant files.
+I've kept his license and mentions from where he lifted his parts in the relevant files.
 
 ## Contents
 
 + [Initial Setup and Installation](#initial-setup-and-installation)
-+ [ZSH Setup](#zsh-setup)
++ [BASH Setup](#bash-setup)
 + [Prompt](#prompt)
 + [Vim and Neovim Setup](#vim-and-neovim-setup)
 + [Fonts](#fonts)
@@ -50,10 +50,14 @@ If on OSX, you will need to install the XCode CLI tools before continuing. To do
 
 Then, clone the dotfiles repository to your home directory as `~/.dotfiles`. 
 
-```bash
+```https
 ➜ git clone https://github.com/bjornconnolly/dotfiles.git ~/.dotfiles
 ➜ cd ~/.dotfiles
 ➜ ./install.sh
+```
+
+```ssh
+➜ git clone git@github.com:bjornconnolly/dotfiles.git ~/.dotfiles
 ```
 
 `install.sh` will start by initializing the submodules used by this repository (if any). **Read through this file and
