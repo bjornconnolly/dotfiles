@@ -25,8 +25,7 @@ I've kept his license and mentions from where he lifted his parts in the relevan
 + [Initial Setup and Installation](#initial-setup-and-installation)
 + [BASH Setup](#bash-setup)
 + [Prompt](#prompt)
-+ [Vim and Neovim Setup](#vim-and-neovim-setup)
-+ [Fonts](#fonts)
++ [Vim Setup](#vim-setup)
 + [Tmux](#tmux-configuration)
 
 ## Initial Setup and Installation
@@ -107,7 +106,7 @@ The git info shown on the `RPROMPT` displays the current branch name, along with
 
 ** Legends are not up-to-date with the bash prompt, stille working on styling for it **
 
-## Vim and Neovim Setup
+## Vim Setup
 
 The vim setup is pretty basic, the `vimrc.symlink` is symlinked to .vimrc. There is also a vimrc.color that provides a
 very basic color setup for vim.
@@ -119,9 +118,6 @@ After this you can install the plugins defined in .vimrc with the command:
 ➜ vim +PlugInstall
 and update them with:
 ➜ vim +PlugUpdate
-
-### Installation
-
 
 ## Tmux Configuration
 
