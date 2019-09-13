@@ -10,10 +10,10 @@ if [ -n "${BASH_VERSION}" ]; then
     : ${omg_second_line:=$PS1}
 
     : ${omg_is_a_git_repo_symbol:='G'}
-    : ${omg_has_untracked_files_symbol:='U'}
+    : ${omg_has_untracked_files_symbol:='?'}
     : ${omg_has_adds_symbol:='+'}
     : ${omg_has_deletions_symbol:='D'}
-    : ${omg_has_cached_deletions_symbol:='D'}
+    : ${omg_has_cached_deletions_symbol:='✘'}
     : ${omg_has_modifications_symbol:='M'}
     : ${omg_has_cached_modifications_symbol:='M'}
     : ${omg_ready_to_commit_symbol:='C'}
