@@ -47,6 +47,10 @@ export PATH=~/bin:$PATH
 # Aliases
 # --------------------------------------------------------------------
 
+#if [ -e "/usr/local/bin/vim" ]; then
+#  alias vi="vim"
+#fi
+
 alias vi='vim'
 alias which='type -p'
 
