@@ -1,9 +1,9 @@
 # gitconfig
 [user]
 	name = Bjorn Connolly
-	email = bjorn@connolly.dk
+	email = bmco@tdc.dk
 [github]
-	user = bjornconnolly
+	user = m74007
 [init]
   templatedir = ~/.dotfiles/git/templates
 [alias]
