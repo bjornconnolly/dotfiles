@@ -103,4 +103,3 @@ if ! [[ $HOSTNAME =~ nms ]]; then
   # Finally source the git prompt file:
   . ~/.dotfiles/bash/prompt.sh
 fi
-
