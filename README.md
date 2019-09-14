@@ -85,26 +85,8 @@ The following occurs in this files:
 ### Prompt
 
 The prompt is meant to be simple while still providing a lot of information to the user, particularly about the status of the 
-git project, if the PWD is a git project. The git bash prompt is borrowed/stolen from:
-https://github.com/arialdomartini/oh-my-git
-
-#### Git Prompt
-
-The git info shown on the `RPROMPT` displays the current branch name, along with the following symbols.
-
--  `+` - New files were added
--  `!` - Existing files were modified
--  `?` - Untracked files exist that are not ignored
--  `»` - Current changes include file renaming
--  `✘` - An existing tracked file has been deleted
--  `$` - There are currently stashed files
--  `=` - There are unmerged files
--  `⇡` - Branch is ahead of the remote (indicating a push is needed)
--  `⇣` - Branch is behind the remote (indicating a pull is needed)
--  `⇕` - The branches have diverged (indicating history has changed and maybe a force-push is needed)
--  `✔` - The current working directory is clean
-
-** Legends are not up-to-date with the bash prompt, stille working on styling for it **
+git project, if the PWD is a git project. The git bash prompt from the git project is used:
+https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 ## Vim Setup
 
