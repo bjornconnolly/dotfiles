@@ -95,9 +95,10 @@ fi
 
 # Prompt
 # --------------------------------------------------------------------
-# Default prompt, please note that another prompt is sourced later to handle git on hosts that support it
-PS1="\[\e[1;39m\]\h\[\e[1;34m\]:"
-PS1="$PS1\[\e[0;39m\]\w\[\e[1;34m\]> \[\e[0m\]"
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
 
 if ! [[ $HOSTNAME =~ nms ]]; then
   miniprompt() {
@@ -105,5 +106,10 @@ if ! [[ $HOSTNAME =~ nms ]]; then
     PS1="\[\e[38;5;168m\]> \[\e[0m\]"
   }
   # Finally source the git prompt file:
-  . ~/.dotfiles/bash/prompt.sh
+  . ~/.dotfiles/bash/git-prompt.sh
 fi
+
+#PS1="\[\e[1;39m\]\h\[\e[1;34m\]:"
+#PS1="$PS1\[\e[0;39m\]\w\[\e[1;34m\]> \[\e[0m\]"
+PS1='\[\033[01;39m\]\h\[\033[01;34m\]:\[\033[01;39m\]\w\[\033[01;36m\]$(__git_ps1 " (%s) ")\[\033[01;34m\]>\[\033[0m\] '
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
