@@ -62,6 +62,12 @@ ext-all() {
   mv ../"$name".tgz .
 }
 
+gpg-rst() {
+  GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | cut -d" " -f 1`
+  kill $GPG_PID
+  gpgconf --launch gpg-agent
+}
+
 ### Colored ls
 if [ -x /usr/bin/dircolors ]; then
   eval "`dircolors -b`"

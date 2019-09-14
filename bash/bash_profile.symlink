@@ -1,6 +1,7 @@
 export PLATFORM=$(uname -s)
 export HOSTNAME=$(hostname) 
 
+# Launch the gpg-agent and set SSH_AUTH_SOCKET for yubikey support
 if [ "$PLATFORM" = Darwin ]; then
   gpgconf --launch gpg-agent
   export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh

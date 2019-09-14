@@ -6,7 +6,7 @@ set shiftround
 set ruler
 set backspace=2
 set whichwrap=<,>,[,]
-" set expandtab
+set expandtab
 
 set backupdir=~/tmp/vim
 set directory=~/tmp/vim
