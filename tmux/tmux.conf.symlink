@@ -141,7 +141,7 @@ set-window-option -g monitor-activity off
 set-option -g bell-action none
 
 # set -g default-terminal "screen-256color"
-set -g default-terminal "screen"
+# set -g default-terminal "screen"
 # solarized color scheme
 source-file ~/.dotfiles/tmux/tmuxcolors-256.conf
 
