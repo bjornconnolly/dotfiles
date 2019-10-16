@@ -140,12 +140,14 @@ Plug 'benmills/vimux'
 
 call plug#end()
 
-" add yaml stuffs
+" add yaml stuff
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType mail,human,vim call MyMailSettings()
 autocmd FileType c,php,perl,ruby call MyProgSettings()
+
+" autocmd FileType text set filetype=conf
 
 source ~/.dotfiles/vim/vimrc.color
