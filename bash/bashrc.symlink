@@ -67,7 +67,7 @@ ext-all() {
 }
 
 gpg-rst() {
-  GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | cut -d" " -f 1`
+  GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | awk '{print $1}'`
   kill $GPG_PID
   gpgconf --launch gpg-agent
 }
