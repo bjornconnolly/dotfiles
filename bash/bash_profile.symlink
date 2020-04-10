@@ -3,8 +3,16 @@ export HOSTNAME=$(hostname)
 
 # Launch the gpg-agent and set SSH_AUTH_SOCKET for yubikey support
 if [ "$PLATFORM" = Darwin ]; then
+  # Launch the gpg-agent to look for USB keys, also set the SSH auth
+  # socket to use the GPG provided one
   gpgconf --launch gpg-agent
   export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+  # Include brew bash_completion if installed on the Darwin host
+  # Mainly for kubectl to get bash_completion not to complain about
+  # missing funtuib
+  if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
+    source /usr/local/etc/profile.d/bash_completion.sh
+  fi
 fi
 
 . ~/.bashrc
