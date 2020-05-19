@@ -89,12 +89,6 @@ fi
 [[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
 [[ -r /usr/local/etc/bash_completion.d/kubectl ]] && . /usr/local/etc/bash_completion.d/kubectl
 
-# Source local functions if applicable
-# I have some bash defined functions that only make sense on some hosts:
-if [[ -d ~/.bash/ ]]; then
-  . ~/.bash/*.sh
-fi
-
 # Prompt
 # --------------------------------------------------------------------
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -118,3 +112,12 @@ fi
 #PS1="$PS1\[\e[0;39m\]\w\[\e[1;34m\]> \[\e[0m\]"
 PS1='\[\033[01;39m\]\h\[\033[01;34m\]:\[\033[01;39m\]\w\[\033[01;36m\]$(__git_ps1 " (%s) ")\[\033[01;34m\]>\[\033[0m\] '
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# Source local functions if applicable, run this last in case we change anything locally
+# I have some bash defined functions that only make sense on some hosts:
+if [[ -d ~/.bash/ ]]; then
+  for script in ~/.bash/*.sh
+  do
+    . $script
+  done
+fi
