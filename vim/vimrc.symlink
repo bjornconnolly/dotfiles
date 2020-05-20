@@ -121,11 +121,11 @@ function CurlyBracket()
     endif
 endfunction
 
-"function! MyProgSettings()
-"  set ts=2
-"  imap }<CR> <ESC>:call CurlyBracket()<CR>a
+function! MyProgSettings()
+  set ts=2
+  imap }<CR> <ESC>:call CurlyBracket()<CR>a
 "  source ~/.vimrc.indent
-"endfunction
+endfunction
 
 function! MyMailSettings()
   set formatoptions+=t
