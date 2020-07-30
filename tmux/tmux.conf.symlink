@@ -64,10 +64,10 @@ bind-key h select-pane -L
 bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
-bind-key -r H resize-pane -L 5
-bind-key -r J resize-pane -D 5
-bind-key -r K resize-pane -U 5
-bind-key -r L resize-pane -R 5
+bind-key -r H resize-pane -L 2
+bind-key -r J resize-pane -D 2
+bind-key -r K resize-pane -U 2
+bind-key -r L resize-pane -R 2
 
 # smart pane switching with awareness of vim splits
 bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys C-h) || tmux select-pane -L"
