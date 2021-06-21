@@ -150,4 +150,5 @@ autocmd FileType c,php,perl,ruby call MyProgSettings()
 
 " autocmd FileType text set filetype=conf
 
-source ~/.dotfiles/vim/vimrc.color
+"source ~/.dotfiles/vim/vimrc.color
+source ~/.dotfiles/vim/argonaut.vim

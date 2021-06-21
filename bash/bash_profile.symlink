@@ -5,7 +5,7 @@ export HOSTNAME=$(hostname)
 if [ "$PLATFORM" = Darwin ]; then
   # Launch the gpg-agent to look for USB keys, also set the SSH auth
   # socket to use the GPG provided one
-  gpgconf --launch gpg-agent
+  /opt/homebrew/bin/gpgconf --launch gpg-agent
   export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
   # Include brew bash_completion if installed on the Darwin host
   # Mainly for kubectl to get bash_completion not to complain about
@@ -13,6 +13,8 @@ if [ "$PLATFORM" = Darwin ]; then
   if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
     source /usr/local/etc/profile.d/bash_completion.sh
   fi
+  # Disable the annoying reminder that MacOS now uses zsh as default shell
+  export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
 . ~/.bashrc
