@@ -44,6 +44,8 @@ export PLATFORM=$(uname -s)
 
 export PATH=~/bin:$PATH
 
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
 # Aliases
 # --------------------------------------------------------------------
 
