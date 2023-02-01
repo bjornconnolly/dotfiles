@@ -19,6 +19,68 @@ fi
 
 . ~/.bashrc
 
+ext() {
+  ext-all --exclude .git --exclude target --exclude "*.log"
+}
+ext-all() {
+  local name=$(basename $(pwd))
+ cd ..
+  tar -cvzf "$name.tgz" $* --exclude "$name.tgz" "$name"
+  cd -
+  mv ../"$name".tgz .
+}
+
+gpg-rst() {
+  GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | awk '{print $1}'`
+  kill $GPG_PID
+  gpgconf --launch gpg-agent
+  gpg-connect-agent updatestartuptty /bye
+}
+
+### Colored ls
+if [ -x /usr/bin/dircolors ]; then
+  eval "`dircolors -b ~/.dotfiles/bash/dircolors.ansi-light`"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+elif [ "$PLATFORM" = Darwin ]; then
+  alias ls='ls -G'
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+elif [ "$PLATFORM" = FreeBSD ]; then
+  alias ls='ls -G'
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+fi
+
+# Shortcut functions
+# --------------------------------------------------------------------
+
+[[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
+[[ -r /usr/local/etc/bash_completion.d/kubectl ]] && . /usr/local/etc/bash_completion.d/kubectl
+
+# Prompt
+# --------------------------------------------------------------------
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
+
+# Source git-prompt
+. ~/.dotfiles/bash/git-prompt.sh
+
+
+# Have to handle the prompt differently, because I work on hosts where 'PROMPT_COMMAND' is locked
+if ! [[ $HOSTNAME =~ nms ]]; then
+  miniprompt() {
+    unset PROMPT_COMMAND
+    PS1="\[\e[38;5;168m\]> \[\e[0m\]"
+  }
+fi
+
+#PS1="\[\e[1;39m\]\h\[\e[1;34m\]:"
+#PS1="$PS1\[\e[0;39m\]\w\[\e[1;34m\]> \[\e[0m\]"
+#PS1='\[\033[01;34m\]\h\[\033[01;37m\]:\[\033[01;39m\]\w\[\033[01;36m\]$(__git_ps1 " (%s) ")\[\033[01;34m\]>\[\033[0m\] '
+PS1='\[\033[01;34m\]\h\[\033[00;32m\]:\[\033[00;32m\]\w\[\033[01;36m\]$(__git_ps1 " (%s) ")\[\033[01;34m\]>\[\033[0m\] '
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
 # Finally setup aliases, done last so they can handle host specific installations and paths
 # -----------------------------------------------------------------------------------------
 
