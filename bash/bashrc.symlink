@@ -44,8 +44,6 @@ export PLATFORM=$(uname -s)
 
 export PATH=~/bin:$PATH
 
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
 # Aliases
 # --------------------------------------------------------------------
 
@@ -72,17 +70,20 @@ gpg-rst() {
   GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | awk '{print $1}'`
   kill $GPG_PID
   gpgconf --launch gpg-agent
+  gpg-connect-agent updatestartuptty /bye
 }
 
 ### Colored ls
 if [ -x /usr/bin/dircolors ]; then
-  eval "`dircolors -b`"
+  eval "`dircolors -b ~/.dotfiles/bash/dircolors.ansi-light`"
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
 elif [ "$PLATFORM" = Darwin ]; then
   alias ls='ls -G'
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 elif [ "$PLATFORM" = FreeBSD ]; then
   alias ls='ls -G'
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 fi
 
 # Shortcut functions
