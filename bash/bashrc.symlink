@@ -44,17 +44,6 @@ export PLATFORM=$(uname -s)
 
 export PATH=~/bin:$PATH
 
-# Aliases
-# --------------------------------------------------------------------
-
-#if [ -e "/usr/local/bin/vim" ]; then
-#  alias vi="vim"
-#fi
-
-alias vi='vim'
-alias which='type -p'
-
-
 ext() {
   ext-all --exclude .git --exclude target --exclude "*.log"
 }

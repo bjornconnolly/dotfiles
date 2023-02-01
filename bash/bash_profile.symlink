@@ -18,3 +18,18 @@ if [ "$PLATFORM" = Darwin ]; then
 fi
 
 . ~/.bashrc
+
+# Finally setup aliases, done last so they can handle host specific installations and paths
+# -----------------------------------------------------------------------------------------
+
+#if [ -e "/usr/local/bin/vim" ]; then
+#  alias vi="vim"
+#fi
+
+if hash nvim; then
+  alias vi='nvim'
+  alias vim='nvim'
+elif hash vim; then
+  alias vi='vim'
+fi
+alias which='type -p'
