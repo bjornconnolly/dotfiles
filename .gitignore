@@ -1,1 +1,8 @@
 iterm2/
+dotfiles-backup/
+.netrwhist
+npm-debug.log
+config/nvim/plugins
+config/nvim/shada
+Brewfile.lock.json
+lazy-lock.json

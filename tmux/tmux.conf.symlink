@@ -68,6 +68,12 @@ bind-key -r H resize-pane -L 2
 bind-key -r J resize-pane -D 2
 bind-key -r K resize-pane -U 2
 bind-key -r L resize-pane -R 2
+# Enable focus-events for neovim integration
+set-option -g focus-events on
+
+# Enable rich colors
+set-option -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ',xterm-256color:RGB'
 
 # smart pane switching with awareness of vim splits
 bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys C-h) || tmux select-pane -L"
