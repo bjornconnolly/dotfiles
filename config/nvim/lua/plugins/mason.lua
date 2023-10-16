@@ -103,6 +103,7 @@ return {
     {
       -- lsp progress gui, fidget spinner
       "j-hui/fidget.nvim",
+      branch = "legacy",
       config = function() require("fidget").setup({}) end,
     },
     { "m-pilia/vim-ccls" },
