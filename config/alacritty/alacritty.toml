@@ -1,0 +1,23 @@
+# Color import
+import = ["~/.config/alacritty/argonaut.toml"]
+
+# Override env for alacritty
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 0.96
+decorations = 'buttonless'
+dynamic_padding = false
+
+[window.padding]
+x = 5
+y = 5
+
+# Same font setup as iTerm
+[font]
+size = 12.0
+
+[font.normal]
+family = 'Monaco'
+style = 'Regular'
