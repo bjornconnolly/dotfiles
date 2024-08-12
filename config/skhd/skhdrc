@@ -1,6 +1,7 @@
 # -- Launching programs
 alt - t : open -na alacritty
 alt - f : open -na Firefox
+#alt - k : /Applications/KeePassXC.app/Contents/MacOS/KeePassXC
 
 # -- Changing Window Focus --
 # change window focus within space

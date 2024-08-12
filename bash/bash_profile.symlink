@@ -10,8 +10,13 @@ if [ "$PLATFORM" = Darwin ]; then
   # Include brew bash_completion if installed on the Darwin host
   # Mainly for kubectl to get bash_completion not to complain about
   # missing funtuib
-  if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
+  if [ -f /usr/local/etc/profile.d/bash_completion.sh ]
+  then
     source /usr/local/etc/profile.d/bash_completion.sh
+  fi
+  if [ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]
+  then
+    source /opt/homebrew/etc/profile.d/bash_completion.sh
   fi
   # Disable the annoying reminder that MacOS now uses zsh as default shell
   export BASH_SILENCE_DEPRECATION_WARNING=1

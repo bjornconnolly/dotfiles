@@ -18,6 +18,9 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # echo "show the ~/Library folder in Finder"
 chflags nohidden ~/Library
 
+# Enable app switche on all displays
+defaults write com.apple.dock appswitcher-all-displays -bool true
+
 # echo "disable resume system wide"
 # defaults write NSGlobalDomainNSQuitAlwaysKeepWindows -bool false
 
@@ -119,6 +122,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Increase window resize speed for Cocoa applications
 # defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+echo "Enable ctrl+cmd+drag to move window (not just title)"
+defaults write -g NSWindowShouldDragOnGesture -bool true
 
 # echo "Avoid creating .DS_Store files on network volumes"
 # defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
