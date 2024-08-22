@@ -212,5 +212,11 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
+echo "Disable displays have seperate spaces, for smoother (for Aerospace)"
+defaults write com.apple.spaces "spans-displays" -bool "true"
+
+echo "Enable Grouping of Windows per application (for Aerospace)"
+defaults write com.apple.dock "expose-group-apps" -bool "true"
+
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
