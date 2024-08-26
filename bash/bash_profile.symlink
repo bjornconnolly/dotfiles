@@ -93,10 +93,10 @@ PS1='\[\033[01;34m\]\h\[\033[00;32m\]:\[\033[00;32m\]\w\[\033[01;36m\]$(__git_ps
 #  alias vi="vim"
 #fi
 
-if hash nvim; then
+if hash nvim 2>/dev/null; then
   alias vi='nvim'
   alias vim='nvim'
-elif hash vim; then
+elif hash vim 2>/dev/null; then
   alias vi='vim'
 fi
 alias which='type -p'

@@ -133,12 +133,12 @@ function! MyMailSettings()
   set ts=3
 endfunction
 
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
-Plug 'mrk21/yaml-vim', { 'for': 'yaml' }
-Plug 'benmills/vimux'
+"Plug 'mrk21/yaml-vim', { 'for': 'yaml' }
+"Plug 'benmills/vimux'
 
-call plug#end()
+"call plug#end()
 
 " add yaml stuff
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
