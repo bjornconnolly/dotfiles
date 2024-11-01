@@ -1,4 +1,5 @@
 # Color import
+[general]
 import = ["~/.config/alacritty/argonaut.toml"]
 
 # Override env for alacritty
