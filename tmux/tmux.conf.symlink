@@ -57,7 +57,7 @@ bind-key bspace previous-window
 bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 
-# use vim-like keys for splits, windows and resize
+# use vi-like keys for splits, windows and resize
 bind-key v split-window -h
 bind-key s split-window -v
 bind-key h select-pane -L
@@ -83,6 +83,11 @@ set-option -sa terminal-overrides ',xterm-256color:RGB'
 #bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys 'C-\\') || tmux select-pane -l"
 #bind C-l send-keys 'C-l'
 
+# Enable synchronize support
+bind-key e \
+  set-window-option synchronize-panes \;\
+  display "Synchronize: #{?pane_synchronized,ON,OFF}"
+
 bind u copy-mode -u
 
 ######################
@@ -97,12 +102,12 @@ setw -g mouse off
 # toggle mouse mode to allow mouse copy/paste
 # set mouse on with prefix m
 bind m \
-    set -g mouse on \;\
-    display "Mouse: ON";
+    set -g mouse \;\
+      display "Mouse: #{?mouse,OFF,ON}";
 # set mouse off with prefix M
-bind M \
-    set -g mouse off \;\
-    display "Mouse: OFF";
+#bind M \
+#    set -g mouse off \;\
+#    display "Mouse: OFF";
 
 ######################
 ### DESIGN CHANGES ###
