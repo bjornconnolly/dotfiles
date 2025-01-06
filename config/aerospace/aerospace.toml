@@ -173,6 +173,7 @@ alt-shift-0 = 'move-node-to-workspace 10'
 
 # Assign some static workspaces to secondary monitor
 [workspace-to-monitor-force-assignment]
+8 = 'secondary'
 9 = 'secondary'
 10 = 'secondary'
 

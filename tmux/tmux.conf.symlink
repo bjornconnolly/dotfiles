@@ -38,9 +38,9 @@ unbind ^A
 bind ^A select-pane -t :.+
 set-option -g history-limit 1000000
 
-# switch panes using Alt-arrow without prefix
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
+# switch panes using Alt-j/k without prefix
+#bind -n M-k select-pane -U
+#bind -n M-j select-pane -D
 
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
