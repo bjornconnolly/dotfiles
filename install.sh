@@ -195,6 +195,21 @@ setup_macos() {
         echo "Enable Safari’s debug menu"
         defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
+        echo "Move the dock to the left"
+        defaults write com.apple.dock orientation left
+
+        echo "Enable hiding of dock"
+        defaults write com.apple.dock "autohide" -bool "true"
+
+        echo "Disable natural scroll"
+        defaults write -g com.apple.swipescrolldirection -bool false
+
+        echo "Disable displays have seperate spaces, for smoother (for Aerospace)"
+        defaults write com.apple.spaces "spans-displays" -bool "true"
+
+        echo "Enable Grouping of Windows per application (for Aerospace)"
+        defaults write com.apple.dock "expose-group-apps" -bool "true"
+
         echo "Kill affected applications"
 
         for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
@@ -216,6 +231,9 @@ case "$1" in
     homebrew)
         setup_homebrew
         ;;
+    macos)
+        setup_macos
+        ;;
     all)
         setup_symlinks
         setup_homebrew
@@ -223,7 +241,7 @@ case "$1" in
         setup_macos
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|macos|all}\n"
         exit 1
         ;;
 esac

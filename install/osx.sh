@@ -212,6 +212,15 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
+echo "Move the dock to the left"
+defaults write com.apple.dock orientation left
+
+echo "Enable hiding of dock"
+defaults write com.apple.dock "autohide" -bool "true"
+
+echo "Disable natural scroll"
+defaults write -g com.apple.swipescrolldirection -bool false
+
 echo "Disable displays have seperate spaces, for smoother (for Aerospace)"
 defaults write com.apple.spaces "spans-displays" -bool "true"
 
