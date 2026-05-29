@@ -1,7 +1,7 @@
 local opts = { silent = true }
 local expr_opts = { silent = true, expr = true }
 
--- vim.g.mapleader = ";"
+-- vim.g.mapleader = "\\"
 
 -- stylua: ignore start
 vim.keymap.set({ "n"      }, "x"        , '"_x')

@@ -7,6 +7,7 @@ return {
   { 'navarasu/onedark.nvim'},
   -- { 'windwp/nvim-autopairs', config = true },
   { 'numToStr/Comment.nvim', config = true },
+  { 'mfussenegger/nvim-ansible' },
   -- { 'williamboman/mason.nvim' },
   {
     "David-Kunz/gen.nvim",

@@ -12,7 +12,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 ### Better-looking less for binary files
-[ -x /usr/bin/lesspipe    ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 ### Bash completion
 [ -f /etc/bash_completion ] && . /etc/bash_completion
@@ -42,18 +42,19 @@ export PLATFORM=$(uname -s)
 # Source system bashrc, if it's there
 [ -f /etc/bashrc ] && . /etc/bashrc
 
-# Source 
+# Source
 
 export PATH=~/bin:$PATH
 
 # Source local functions if applicable, run this last in case we change anything locally
 # I have some bash defined functions that only make sense on some hosts:
 if [[ -d ~/.bash/ ]]; then
-  for script in ~/.bash/*.sh
-  do
+  for script in ~/.bash/*.sh; do
     . $script
   done
 fi
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/bco/.cache/lm-studio/bin"
+export PATH="$PATH:/Users/au131363/.lmstudio/bin"
+# End of LM Studio CLI section
+

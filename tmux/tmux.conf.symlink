@@ -64,6 +64,11 @@ bind-key h select-pane -L
 bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
+# Tmux has no support for left/right pane swapping?
+#bind-key C-h swap-pane -L
+bind-key C-j swap-pane -D
+bind-key C-k swap-pane -U
+#bind-key C-l swap-pane -R
 bind-key -r H resize-pane -L 2
 bind-key -r J resize-pane -D 2
 bind-key -r K resize-pane -U 2

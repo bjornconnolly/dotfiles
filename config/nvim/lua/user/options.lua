@@ -19,11 +19,11 @@ o.smartindent = true -- make indenting smarter again
 o.list = true
 o.showbreak = "↪"
 o.listchars = {
-  eol = '¬',
-  trail = '⋅',
-  extends = '❯',
-  precedes = '❮',
-  tab = '->',
+  eol = "¬",
+  trail = "⋅",
+  extends = "❯",
+  precedes = "❮",
+  tab = "->",
 }
 
 -- Disable line wrapping per default

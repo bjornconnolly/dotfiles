@@ -1,5 +1,5 @@
 export PLATFORM=$(uname -s)
-export HOSTNAME=$(hostname) 
+export HOSTNAME=$(hostname)
 
 # Launch the gpg-agent and set SSH_AUTH_SOCKET for yubikey support
 if [ "$PLATFORM" = Darwin ]; then
@@ -10,12 +10,10 @@ if [ "$PLATFORM" = Darwin ]; then
   # Include brew bash_completion if installed on the Darwin host
   # Mainly for kubectl to get bash_completion not to complain about
   # missing funtuib
-  if [ -f /usr/local/etc/profile.d/bash_completion.sh ]
-  then
+  if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
     source /usr/local/etc/profile.d/bash_completion.sh
   fi
-  if [ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]
-  then
+  if [ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]; then
     source /opt/homebrew/etc/profile.d/bash_completion.sh
   fi
   # Disable the annoying reminder that MacOS now uses zsh as default shell
@@ -29,14 +27,14 @@ ext() {
 }
 ext-all() {
   local name=$(basename $(pwd))
- cd ..
+  cd ..
   tar -cvzf "$name.tgz" $* --exclude "$name.tgz" "$name"
   cd -
   mv ../"$name".tgz .
 }
 
 gpg-rst() {
-  GPG_PID=`ps x | grep -v grep | grep "gpg-agent --homedir" | awk '{print $1}'`
+  GPG_PID=$(ps x | grep -v grep | grep "gpg-agent --homedir" | awk '{print $1}')
   kill $GPG_PID
   gpgconf --launch gpg-agent
   gpg-connect-agent updatestartuptty /bye
@@ -44,7 +42,7 @@ gpg-rst() {
 
 ### Colored ls
 if [ -x /usr/bin/dircolors ]; then
-  eval "`dircolors -b ~/.dotfiles/bash/dircolors.ansi-light`"
+  eval "$(dircolors -b ~/.dotfiles/bash/dircolors.ansi-light)"
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
 elif [ "$PLATFORM" = Darwin ]; then
@@ -70,7 +68,6 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 # Source git-prompt
 . ~/.dotfiles/bash/git-prompt.sh
-
 
 # Have to handle the prompt differently, because I work on hosts where 'PROMPT_COMMAND' is locked
 if ! [[ $HOSTNAME =~ nms ]]; then
@@ -102,4 +99,6 @@ fi
 alias which='type -p'
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/bco/.cache/lm-studio/bin"
+export PATH="$PATH:/Users/au131363/.lmstudio/bin"
+# End of LM Studio CLI section
+
