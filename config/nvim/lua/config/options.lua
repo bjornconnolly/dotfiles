@@ -1,4 +1,7 @@
-local fn = vim.fn
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+
 local o = vim.opt
 local g = vim.g
 
@@ -7,6 +10,12 @@ g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
+
+-- LSP Server to use for Python.
+-- Set to "basedpyright" to use basedpyright instead of pyright.
+g.lazyvim_python_lsp = "pyright"
+-- Set to "ruff_lsp" to use the old LSP implementation version.
+g.lazyvim_python_ruff = "ruff"
 
 -- Setup basic identation and tab expansion (Overwritten per lang later)
 o.shiftwidth = 2
@@ -26,6 +35,9 @@ o.listchars = {
   tab = "->",
 }
 
+-- Show ruler
+--o.ruler = true
+
 -- Disable line wrapping per default
 o.wrap = false
 
@@ -39,10 +51,16 @@ o.smartcase = true
 o.termguicolors = true
 o.background = "dark"
 o.signcolumn = "no"
--- o.number = true -- Show a column with line numbers
+o.number = false -- Show a column with line numbers
+o.relativenumber = false -- Also disable the relativenumber
 -- o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
 --
 -- Swapfile and undo
 o.swapfile = false -- enable/disable swap file creation
-o.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
+-- o.undodir = fn.stdpath("data") .. "~/tmp/vim/" -- set undo directory
 o.undofile = true -- enable/disable undo file creation
+
+o.fillchars = { eob = "~" }
+
+-- Enable showmode in case we are not showing status with lualine
+--o.showmode = true
