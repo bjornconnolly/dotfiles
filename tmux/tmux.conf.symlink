@@ -93,7 +93,9 @@ bind-key e \
   set-window-option synchronize-panes \;\
   display "Synchronize: #{?pane_synchronized,ON,OFF}"
 
-bind u copy-mode -u
+#bind u copy-mode -u
+# Really don't like the jump back in buffer per default
+bind u copy-mode
 
 ######################
 ### MOUSE CHANGES  ###
